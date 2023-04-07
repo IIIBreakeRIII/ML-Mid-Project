@@ -1,6 +1,8 @@
 import matplotlib.pyplot as plt
 import pandas as pd
 
+from sklearn.linear_model import LinearRegression
+
 from Population import PopulationInfo as PI
 
 RateList = []
@@ -12,5 +14,3 @@ for i in range(len(PI)):
 RateListPlot = pd.DataFrame(RateList)
 RateListPlot.plot()
 plt.show()
-
-print(RateListPlot)
