@@ -1,9 +1,7 @@
 import matplotlib.pyplot as plt
 import pandas as pd
 
-from sklearn.linear_model import LinearRegression
-
-from Population import PopulationInfo as PI
+from PopulationTest import PopulationInfo as PI
 
 RateList = []
 
