@@ -25,7 +25,7 @@ for i in range(48):
   for k in range(9):
     temp = 0
     temp = MonthPeople[i][k] / AllMonthPeople
-    tempList2.append(round(temp, 4))
+    tempList2.append(round(temp, 2))
   ratio.append(tempList2)
 
 MonthRevenue = []
