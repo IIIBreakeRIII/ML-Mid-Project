@@ -1,10 +1,10 @@
-import numpy as np
 import pandas as pd
 
 Subway = pd.read_excel('Data/Subway_Old_Final.xlsx', index_col=0, header=0)
 Revenue = pd.read_excel('Data/All_Revenue_Loss.xlsx', index_col=0, header=0)
 
 # Subway 셀에서 호선별 전체 이용자 수
+# 1 ~ 9호선
 index = [2, 6, 10, 14, 18, 22, 26, 30, 34]
 
 # 매월 호선별 전체 이용자 수 합 리스트
@@ -35,5 +35,3 @@ for i in range(9):
   Revenue2018 = 0
   Revenue2018 = Revenue.iloc[0, 0] * ratio[i]
   MonthRevenue.append(Revenue2018)
-
-print(MonthRevenue)
