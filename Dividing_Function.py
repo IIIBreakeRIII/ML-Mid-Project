@@ -38,3 +38,7 @@ for i in range(48):
     RevenueYear = Revenue.iloc[i, 0] * ratio[0][j]
     tempList3.append(RevenueYear)
   MonthRevenue.append(tempList3)
+
+MonthRevenue = np.array(MonthRevenue).reshape(-1, 9)
+
+print(MonthRevenue)

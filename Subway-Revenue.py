@@ -6,34 +6,25 @@ from sklearn.model_selection import train_test_split as tts
 from sklearn.linear_model import LinearRegression as LR
 from sklearn.preprocessing import PolynomialFeatures as PF
 
-Subway = pd.read_excel('Data/Subway_Old_Final.xlsx', index_col=0, header=0, usecols=[3, 4])
+from Dividing_Function import MonthRevenue as MR
+
+Subway = pd.read_excel('Data/Subway_Old_Final.xlsx', header=0, usecols=[3, 4, 7, 8, 11, 12, 15, 16, 19, 20, 23, 24, 27, 28, 31, 32, 35, 36])
 # print(Subway)
-Revenue = pd.read_excel('Data/All_Revenue_Loss.xlsx', index_col=0, header=0)
+Revenue = MR
 
-Subway = np.array(Subway)
-Revenue = np.array(Revenue)
+Subway = np.array(Subway).reshape(-1, 2)
+# print(len(Subway))
+# print(Subway)
+Revenue = np.array(Revenue).reshape(-1, 1)
+# print(len(Revenue))
 
-# 데이터 확인
-print(len(Subway))
-print(len(Revenue))
+train_i, test_i, train_o, test_o = tts(Subway, Revenue, test_size=0.5, random_state=42)
 
-# plt.plot(Subway)
-# plt.plot(Revenue)
-# plt.show()
+lr = LR()
+lr.fit(train_i, train_o)
 
-poly = PF(degree=3, include_bias=False)
-poly.fit(Subway)
-train_poly = poly.transform(Subway)
+print(lr.score(train_i, train_o))
+print(lr.score(test_i, test_o))
 
-testSize = 0.1
-
-for i in range(9):
-  train_i, test_i, train_o, test_o = tts(train_poly, Revenue, test_size=testSize, random_state=42)
-
-  lr = LR()
-  lr.fit(train_i, train_o)
-
-  print("test_size =", testSize, " =", lr.score(train_i, train_o))
-  print("test_size =", testSize, " =", lr.score(test_i, test_o))
-
-  testSize = testSize + 0.1
+A = lr.predict([[17910424, 2472165]])
+print(A / 1000000)
