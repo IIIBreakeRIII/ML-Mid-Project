@@ -6,8 +6,8 @@ from sklearn.model_selection import train_test_split as tts
 from sklearn.linear_model import LinearRegression as LR
 from sklearn.preprocessing import PolynomialFeatures as PF
 
-from Population import PopulationInfo as PI
-from Population import AllPopulation as AP
+from Test.Population import PopulationInfo as PI
+from Test.Population import AllPopulation as AP
 
 AllSubway = pd.read_excel('Data/Subway_Old_Final.xlsx', index_col=0, header=0)
 AllSubway = AllSubway.drop(['Line1-People', 'Line1-Old', 'Line1-People-All'], axis = 1)
