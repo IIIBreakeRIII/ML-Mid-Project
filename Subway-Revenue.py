@@ -17,14 +17,30 @@ Subway = np.array(Subway).reshape(-1, 2)
 # print(Subway)
 Revenue = np.array(Revenue).reshape(-1, 1)
 # print(len(Revenue))
+# print(Revenue)
 
-train_i, test_i, train_o, test_o = tts(Subway, Revenue, test_size=0.5, random_state=42)
+train_i, test_i, train_o, test_o = tts(Subway, Revenue, test_size=0.2, random_state=42)
 
 lr = LR()
 lr.fit(train_i, train_o)
 
+plt.scatter(train_i[:, 0], train_o[:, 0])
+plt.scatter(28493000, 22286000000, marker='^')
+plt.show()
+
 print(lr.score(train_i, train_o))
 print(lr.score(test_i, test_o))
 
-A = lr.predict([[17910424, 2472165]])
-print(A / 1000000)
+A = lr.predict([[28493000, 3932872]])
+B = lr.predict([[31023000, 3707533]])
+C = lr.predict([[13695000, 1895215]])
+print(B)
+
+print(lr.coef_, lr.intercept_)
+
+
+
+# print((13.3977 * 13916000 ** 5) + (17.9566 * 13916000 ** 4) + (-12.2057 * 13916000 ** 3) + (-0.0550 * 13916000 ** 2) + (-6.9626 * 13916000) - 1.0488)
+
+# 13916000
+# 13.3976823131  17.9565644997  -12.2056914155    -0.05498147605   -6.96260923241 ] [-1.04878524396]

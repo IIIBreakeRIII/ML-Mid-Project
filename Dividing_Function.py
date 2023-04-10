@@ -39,6 +39,5 @@ for i in range(48):
     tempList3.append(RevenueYear)
   MonthRevenue.append(tempList3)
 
-MonthRevenue = np.array(MonthRevenue).reshape(-1, 9)
-
-print(MonthRevenue)
+# MonthRevenue = np.array(MonthRevenue)
+# print(MonthRevenue)
