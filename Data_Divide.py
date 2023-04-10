@@ -35,3 +35,5 @@ for i in range(9):
   Revenue2018 = 0
   Revenue2018 = Revenue.iloc[0, 0] * ratio[i]
   MonthRevenue.append(Revenue2018)
+
+print(MonthRevenue)
