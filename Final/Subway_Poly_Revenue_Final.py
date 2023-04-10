@@ -21,40 +21,8 @@ train_input, test_input, train_target, test_target = tts(train_poly, Revenue, te
 
 lr = LR()
 lr.fit(train_input, train_target)
-
-print(lr.score(train_input, train_target))
-print(lr.score(test_input, test_target))
+RevenueTrainScore = lr.score(train_input, train_target)
+RevenueTestScore = lr.score(test_input, test_target)
 
 RevenueCoef = lr.coef_
 RevenueIntercept = lr.intercept_
-
-predictValue = 22955000
-predictValue2 = 3082293
-
-sum = 0
-
-for i in range(9):
-  if i == 0:
-    sum = sum + (RevenueCoef[0][0] * predictValue)
-  elif i == 1:
-    sum = sum + (RevenueCoef[0][1] * predictValue2)
-  elif i == 2:
-    sum = sum + (RevenueCoef[0][2] * predictValue ** 2)
-  elif i == 3:
-    sum = sum + (RevenueCoef[0][3] * predictValue * predictValue2)
-  elif i == 4:
-    sum = sum + (RevenueCoef[0][4] * predictValue2 ** 2)
-  elif i == 5:
-    sum = sum + (RevenueCoef[0][5] * predictValue ** 3)
-  elif i == 6:
-    sum = sum + (RevenueCoef[0][6] * predictValue ** 2 * predictValue2)
-  elif i == 7:
-    sum = sum + (RevenueCoef[0][7] * predictValue * predictValue2 ** 2)
-  elif i == 8:
-    sum = sum + (RevenueCoef[0][8] * predictValue2 ** 3)
-
-sum = sum + RevenueIntercept[0]
-
-print(sum)
-
-print(1.71863505e+10)

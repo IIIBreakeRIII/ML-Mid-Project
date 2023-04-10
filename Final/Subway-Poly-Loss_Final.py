@@ -1,6 +1,5 @@
 import pandas as pd
 import numpy as np
-import matplotlib.pyplot as plt
 
 from sklearn.model_selection import train_test_split as tts
 from sklearn.linear_model import LinearRegression as LR
@@ -13,9 +12,6 @@ Loss = ML
 
 Subway = np.array(Subway).reshape(-1, 2)
 Loss = np.array(Loss).reshape(-1, 1)
-
-plt.plot(Loss[:, 0])
-plt.show()
 
 poly = PF(degree=3, include_bias=False)
 poly.fit(Subway)
